@@ -27,14 +27,15 @@ function App() {
 
       return {
         ...prevState,
+        selectedProjectId: undefined,
         projects: [...prevState.projects, newProject]
       }
     })
   }
-
+  console.log(projectState)
   return (
     <main className="h-screen my-8 flex gap-8 ">
-      <Sidebar onStartProject={handleStartProject}/>
+      <Sidebar onStartProject={handleStartProject} projects={projectState.projects}/>
       
       {
         projectState.selectedProjectId === undefined ? 
